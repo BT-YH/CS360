@@ -35,7 +35,7 @@ CREATE TABLE BUYER (
 );
 
 
-CREATE TABLE moderates (
+CREATE TABLE MODERATES (
     admin_username   VARCHAR(15)      NOT NULL,
     end_username     VARCHAR(15)      NOT NULL,
     end_status       VARCHAR(15)      NOT NULL,
