@@ -16,7 +16,6 @@ CREATE TABLE ADMIN (
 CREATE TABLE END_USER (
     end_username     VARCHAR(15)       PRIMARY KEY,
     user_address     VARCHAR(255),
-    user_status      BOOLEAN           NOT NULL,
     FOREIGN KEY(end_username) REFERENCES  USER(username)  
 )
 
@@ -39,7 +38,7 @@ CREATE TABLE BUYER (
 CREATE TABLE moderates (
     admin_username   VARCHAR(15)      NOT NULL,
     end_username     VARCHAR(15)      NOT NULL,
-
+    end_status       VARCHAR(15)      NOT NULL,
     FOREIGN KEY(admin_username) REFERENCES  USER(username),
     FOREIGN KEY(end_username)   REFERENCES  USER(username),
 )
