@@ -64,7 +64,7 @@ CREATE TABLE ITEM (
     quantity        INT,
     category        VARCHAR(20)       NOT NULL,
     post_date       TIME              NOT NULL,
-    picture         BOOLEAN           NOT NULL,
+    picture         VARCHAR(250),     
     description     VARCHAR(150),
     buyer_username  VARCHAR(15),      NOT NULL,
     seller_username VARCHAR(15),      NOT NULL,
