@@ -66,12 +66,16 @@ CREATE TABLE ITEM (
     post_date       TIME              NOT NULL,
     picture         VARCHAR(250),     
     description     VARCHAR(150),
-    buyer_username  VARCHAR(15),      NOT NULL,
     seller_username VARCHAR(15),      NOT NULL,
     price           DEC(8,2)          NOT NULL,
     FOREIGN KEY(seller_username)  REFERENCES  END_USER(username),      
-    FOREIGN KEY(buyer_username) REFERENCES  END_USER(username)   
 );
+
+CREATE TABLE SOLD_ITEMS (
+    iid             INT          PRIMARY KEY,
+    buyer_username  VARCHAR(15)  NOT NULL,
+    FOREIGN KEY(seller_username) 
+)
 
 
 CREATE TABLE MESSAGES (
