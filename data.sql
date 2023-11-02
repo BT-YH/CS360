@@ -20,7 +20,7 @@ INSERT INTO User
 VALUES ('wallca01', 'Carl', 'Wallace', '2002-07-20', 'wallca01');
 
 INSERT INTO User
-VALUES ('maloma01', 'Matt', 'Malone', '2003-10-10', 'wallca01');
+VALUES ('maloma01', 'Matt', 'Malone', '2003-10-10', 'maloma01');
 
 INSERT INTO User
 VALUES ('myerca01', 'Caitlyn', 'Myers', '2002-02-26', 'myerca01');
