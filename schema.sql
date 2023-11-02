@@ -34,10 +34,9 @@ CREATE TABLE BUYER (
 );
 
 
-CREATE TABLE MODERATES (
+CREATE TABLE INACTIVE_USERS (
     admin_username   VARCHAR(15)      NOT NULL,
     end_username     VARCHAR(15)      NOT NULL,
-    end_status       VARCHAR(15)      NOT NULL,
     FOREIGN KEY(admin_username) REFERENCES  USER(username),
     FOREIGN KEY(end_username)   REFERENCES  USER(username),
 )
