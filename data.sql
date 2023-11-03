@@ -125,35 +125,34 @@ INSERT INTO BUYER
 VALUES ('myervi01',87);
 
 INSERT INTO SELLER
-VALUES ('kentfr01', 87);
+VALUES ('kentfr01', 5, 87);
 
 INSERT INTO SELLER
-VALUES ('brooro01',10);
+VALUES ('brooro01', NULL, 10);
 
 INSERT INTO SELLER
-VALUES ('mossma01',15);
+VALUES ('mossma01', 2, NULL, 15);
 
 INSERT INTO SELLER
-VALUES ('stanro01',8);
+VALUES ('stanro01', NULL, 8);
 
 INSERT INTO SELLER
-VALUES ('sullgr01',97);
+VALUES ('sullgr01', NULL, 97);
 
 INSERT INTO SELLER
-VALUES ('wallca01',311);
+VALUES ('wallca01', 4.5, 311);
 
 INSERT INTO SELLER
-VALUES ('maloma01',1);
+VALUES ('maloma01', 5, 1);
 
 INSERT INTO SELLER
-VALUES ('myervi01',14);
+VALUES ('myervi01', 5, 14);
 
 INSERT INTO BANS
 VALUES ('gilmow01', 'smitke03');
 
 INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('Fundamentals of Physics Textbook', 'Very good', 1, 'Course Materials', NOW(), 'https://m.media-amazon.com/images/I/81+lwBghWBL._AC_UF1000,1000_QL80_.jpg', 'Very good condition Physics textbook for Physics 111', 'kentfr01', 29.99);
-
 
 INSERT INTO ITEM (item_title, item_condition, item_size, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('Large Gettysburg T-Shirt', 'Good', 'Large', 1, 'Fashion', NOW(), 'https://images.footballfanatics.com/gettysburg-bullets/gettysburg-college-champion-jersey-short-sleeve-t-shirt-navy_ss10_p-100797648+u-tvvzialj6ngp73mi6qel+v-3ha6ijmm8mcg7ipnk28s.jpg?_hv=2&w=600', 'Good condition Large Gettysburg t-shirt', 'brooro01', 19.99);
@@ -201,11 +200,11 @@ INSERT INTO PURCHASES
 VALUES(NOW(), 'kentfr01', 8, 2);
 
 INSERT INTO MESSAGES
-VALUES(NULL, NOW(), "Code Jam Competition Announcement", "Were thrilled to announce the Code Jam Competition hosted by the Computer Science Club! Sharpen your coding skills and compete for exciting prizes. Register now and show off your coding prowess!", "kentfr01", "brooro01" );
+VALUES(NULL, NOW(), "Code Jam Competition Announcement", "Were thrilled to announce the Code Jam Competition hosted by the Computer Science Club! Sharpen your coding skills and compete for exciting prizes. Register now and show off your coding prowess!", "kentfr01", "brooro01");
 
 
 INSERT INTO MESSAGES
-VALUES(NULL, NOW(), "Weekly Coding Workshop - Data Structures Focus", "Dive deep into data structures at our upcoming workshop this Thursday. Whether youre a beginner or an experienced coder, join us to enhance your skills and tackle coding challenges. Dont miss out – mark your calendar!", "mossama01", "jamebo01")
+VALUES(NULL, NOW(), "Weekly Coding Workshop - Data Structures Focus", "Dive deep into data structures at our upcoming workshop this Thursday. Whether youre a beginner or an experienced coder, join us to enhance your skills and tackle coding challenges. Dont miss out – mark your calendar!", "mossama01", "jamebo01");
 
 
 INSERT INTO MESSAGES
@@ -213,7 +212,7 @@ VALUES(NULL, NOW(), "Guest Speaker Series on AI and Machine Learning", "Exciting
 
 
 INSERT INTO MESSAGES
-VALUES(NULL, NOW(), "Hackathon Team Formation Event", "Form your dream hackathon team at our upcoming event! Whether you have a project idea or are looking to join a team, this is the perfect opportunity to connect with like-minded individuals and brainstorm innovative solutions.", "myervi01", "shieka01")
+VALUES(NULL, NOW(), "Hackathon Team Formation Event", "Form your dream hackathon team at our upcoming event! Whether you have a project idea or are looking to join a team, this is the perfect opportunity to connect with like-minded individuals and brainstorm innovative solutions.", "myervi01", "shieka01");
 
 
 INSERT INTO MESSAGES
