@@ -34,11 +34,12 @@ CREATE TABLE BUYER (
 );
 
 
-CREATE TABLE INACTIVE_USERS (
+CREATE TABLE BANS (
     admin_username   VARCHAR(15)      NOT NULL,
     end_username     VARCHAR(15)      NOT NULL,
+    PRIMARY KEY(admin_username, end_username),
     FOREIGN KEY(admin_username) REFERENCES  USER(username),
-    FOREIGN KEY(end_username)   REFERENCES  USER(username),
+    FOREIGN KEY(end_username)   REFERENCES  USER(username)
 )
 
 
