@@ -1,151 +1,151 @@
-INSERT INTO User
+INSERT INTO USER
 VALUES ('kentfr01', 'Francis', 'Kent', '2003-07-23', 'kentfr01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('brooro01', 'Robert', 'Brooks', '2001-04-07', 'brooro01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('mossma01', 'Martha', 'Moss', '2002-11-12', 'mossma01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('stanro01', 'Rodney', 'Stanley', '2001-09-01', 'stanro01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('jamebo01', 'Bobby', 'James', '2004-01-16', 'jamebo01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('sullgr01', 'Grace', 'Sullivan', '2003-12-06', 'sullgr01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('wallca01', 'Carl', 'Wallace', '2002-07-20', 'wallca01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('maloma01', 'Matt', 'Malone', '2003-10-10', 'maloma01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('myervi01', 'Victoria', 'Myers', '2002-02-26', 'myervi01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('shieka01', 'Kate', 'Shields', '2003-09-09', 'shieka01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('barbch01', 'Chris', 'Barber', '2001-11-14', 'barbch01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('russro01', 'Rory', 'Russell', '2002-01-06', 'russro01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('wallca01', 'Alex', 'Wiggins', '2002-04-19', 'wallca01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('gilmow01', 'Owen', 'Gilman', '2002-01-01', 'gilmow01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('cummbe01', 'Benedict', 'Cummings', '2002-01-02', 'cummbe01');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('tangyi02', 'Barry', 'Tang', '2002-01-03', 'tangyi02');
 
-INSERT INTO User
+INSERT INTO USER
 VALUES ('smitke03', 'Kevin', 'Smith', '2002-01-04', 'smitke03');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('kentfr01','2381 Desert Broom Court');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('brooro01','624 Capitol Avenue');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('mossma01','984 Michigan Avenue');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('stanro01','4174 Godfrey Road');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('sullgr01','1767 Spruce Drive');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('wallca01','2517 2770 Calico Drive');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('maloma01','4692 Railroad Street');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('myervi01','1194 Coburn Hollow Road');
 
-INSERT INTO End_User
+INSERT INTO END_USER
 VALUES ('smitke03','1234 Main Street');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('shieka01');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('barbch01');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('russro01');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('wallca01');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('maloma01');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('gilmow01');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('cummbe01');
 
-INSERT INTO Admin
+INSERT INTO ADMIN
 VALUES ('tangyi02');
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('kentfr01', 10);
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('brooro01',15);
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('mossma01',8);
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('stanro01',97);
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('sullgr01',311);
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('wallca01',1);
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('maloma01',14);
 
-INSERT INTO Buyer
+INSERT INTO BUYER
 VALUES ('myervi01',87);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('kentfr01', 87);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('brooro01',10);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('mossma01',15);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('stanro01',8);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('sullgr01',97);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('wallca01',311);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('maloma01',1);
 
-INSERT INTO Seller
+INSERT INTO SELLER
 VALUES ('myervi01',14);
 
 INSERT INTO BANS
