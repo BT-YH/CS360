@@ -151,28 +151,28 @@ VALUES ('myervi01', 5, 14);
 INSERT INTO BANS
 VALUES ('gilmow01', 'smitke03');
 
-INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, description, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('Fundamentals of Physics Textbook', 'Very good', 1, 'Course Materials', NOW(), 'https://m.media-amazon.com/images/I/81+lwBghWBL._AC_UF1000,1000_QL80_.jpg', 'Very good condition Physics textbook for Physics 111', 'kentfr01', 29.99);
 
-INSERT INTO ITEM (item_title, item_condition, item_size, quantity, category, post_date, picture, description, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, item_size, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('Large Gettysburg T-Shirt', 'Good', 'Large', 1, 'Fashion', NOW(), 'https://images.footballfanatics.com/gettysburg-bullets/gettysburg-college-champion-jersey-short-sleeve-t-shirt-navy_ss10_p-100797648+u-tvvzialj6ngp73mi6qel+v-3ha6ijmm8mcg7ipnk28s.jpg?_hv=2&w=600', 'Good condition Large Gettysburg t-shirt', 'brooro01', 19.99);
 
-INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, description, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('TI-84 Calculator', 'Used', 1, 'Technology', NOW(), 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkIfHuv6AIK3y_XwGAorVYyDlq39GhGf55EL90vQ7d4wUDW6BNblqk2iM9FMp0j9OXNn0&usqp=CAU', 'Used but working TI-84 calculator', 'mossma01', 55.99);
 
-INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, description, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('ReMarkable', 'Very Good', 1, 'Technology', NOW(), 'https://m.media-amazon.com/images/I/71OL7PXfOeL.jpg', 'Good condition ReMarkable tablet', 'stanro01', 79.99);
 
-INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, description, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('Data Structures Textbook', 'Used', 1, 'Course Materials', NOW(), 'https://m.media-amazon.com/images/I/71kBRLo8ZtL._AC_UF1000,1000_QL80_.jpg', 'CS216 Textbook in not great condition but still usable', 'sullgr01', 29.99);
 
-INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, description, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, quantity, category, post_date, picture, description, seller_username, price)
 VALUES ('Gettysburg Notebook', 'New', 3, 'Student Essentials', NOW(), 'https://static.helixbeta.com/prod/8308/0268/8308_643120268.JPG', 'Never used Gettysburg notebook', 'wallca01', 5.99);
 
-INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, quantity, category, post_date, picture, seller_username, price)
 VALUES ('Acoustic Guitar', 'Good', 1, 'Entertainment', NOW(), 'https://upload.wikimedia.org/wikipedia/commons/4/45/GuitareClassique5.png', 'maloma01', 129.99);
 
-INSERT INTO ITEM (item_title, item_condition, quantity, category, post_date, picture, seller_username, price)
+INSERT INTO ITEM (item_name, item_condition, quantity, category, post_date, picture, seller_username, price)
 VALUES ('Gettysburg Sticker', 'New', 1, 'Student Essentials', NOW(), 'https://ih1.redbubble.net/image.1196636959.2471/st,small,507x507-pad,600x600,f8f8f8.jpg', 'myervi01', 0.99);
 
 INSERT INTO PURCHASES
