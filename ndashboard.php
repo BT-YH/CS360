@@ -1,4 +1,3 @@
-<?php include("landingpage.php")?>
 <!DOCTYPE html>
 <html>
 
