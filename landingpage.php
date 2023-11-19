@@ -1,3 +1,4 @@
+<?php include_once("gilmow01util.php"); ?>
 <!DOCTYPE html>
 <HTML>
 <HEAD>
@@ -24,6 +25,22 @@ padding-bottom:10px;
 }
 </STYLE>
 
+    <?php
+    $menu = "main";
+    if (isset($_GET['menu'])) {
+    $menu = $_GET['menu'];
+    if ($menu == 'login') {
+        login($db, $_POST);
+}
+    else if ($menu == 'logout') {
+        unset($_SESSION['username']);
+    }
+}
+
+$username = $_SESSION['username'];
+$fname = getName($db, $username);
+     ?>
+
 </HEAD>
 <BODY>
     <table style="width:100%"> 
@@ -38,7 +55,14 @@ padding-bottom:10px;
     </td>
     <td align = "right">
     <?php
-    showLogoutForm(); ?>
+    if (isset($_SESSION['username'])) {?>
+        <H4 style="margin-right: 10px">Welcome, <a href="ndashboard.php"><?php echo $fname?></a> &nbsp&nbsp&nbsp&nbsp&nbspCart|? items <img src ="https://www.clker.com/cliparts/z/Y/x/l/A/c/shopping-cart-navy-hi.png" width = "20" height = "20"</img></H4>
+        <?php showLogoutForm();
+    }
+    else {
+        showLoginForm($db);
+    }
+?>
     <br/>
     <br/>
     <br/>
@@ -98,27 +122,3 @@ height="300" width="auto"></img>
 </DIV>
 </BODY>
 </HTML>
-<?php
-function showLoginForm() {
-?>
-    <FORM name='fmLogin' method='POST' action='op=login'>
-    <INPUT type='text' name='uid' size='15' placeholder='username' style="margin-right: 10px" />
-    <br/>
-    <INPUT type='text' name='uid' size='15' placeholder='password' style="margin-right: 10px" />
-    <br/>
-    <INPUT type='submit' value='Log in' style="margin-right: 10px" />
-    </FORM>
-
-<?php
-}
-function showLogoutForm() {
-?>
-    <H4 style="margin-right: 10px">Welcome, User&nbsp&nbsp&nbsp&nbsp&nbspCart|? items <img src ="https://www.clker.com/cliparts/z/Y/x/l/A/c/shopping-cart-navy-hi.png" width = "20" height = "20"</img></H4>
-    <FORM name='fmLogout' method='POST' action='op=logout'>
-    <INPUT type='submit' value='Logout' style="margin-right: 10px" />
-    </FORM>
-<?php
-}
-?>
-
-
