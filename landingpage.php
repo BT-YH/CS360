@@ -23,6 +23,7 @@ margin-top: 10px;
 img{
 padding-bottom:10px;
 }
+
 </STYLE>
 
     <?php
@@ -34,6 +35,9 @@ padding-bottom:10px;
 }
     else if ($menu == 'logout') {
         unset($_SESSION['username']);
+    }
+    else if ($menu == 'create'){
+	createAccount($db, $_POST);
     }
 }
 
@@ -60,7 +64,13 @@ $fname = getName($db, $username);
         <?php showLogoutForm();
     }
     else {
-        showLoginForm($db);
+        logOrCreate();
+        if($_POST['option'] == 'Log In'){
+           showLoginForm($db);
+        }
+        else if($_POST['option'] == 'Create Account'){
+           showCreateForm($db);
+        }
     }
 ?>
     <br/>
