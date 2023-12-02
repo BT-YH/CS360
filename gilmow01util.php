@@ -23,6 +23,29 @@ function showLogoutForm() {
 <?php
 }
 
+function showBanForm($db){ ?>
+    <FORM name = 'fmBan' method = 'POST' action = '?menu=ban'>
+    </table> <?php
+        $sql = "SELECT end_username
+                FROM END_USER";
+        $res = $db->query($sql);
+        if ($res != FALSE){
+        ?>
+        <TABLE> 
+            <?php
+            while($row=$res->fetch()){ ?>
+                <tr> <td style = "padding-left: 15px; padding-right: 10px; padding-top :10px; padding-bottom: 10px"> <?php
+                $enduser = $row['end_username']; print($enduser);?> </td><td> <?php
+                $entry = "<INPUT type='submit' value = 'Ban' name = $enduser size='20'/>";
+                printf($entry); ?>
+                </td></tr> <?php
+            } ?>
+        </TABLE>
+            <?php
+    } ?>
+    </FORM> <?php
+}
+
 function logOrCreate(){
 ?>
     <FORM name='fmLogOrCreate' method='POST' action='?menu=logOrCreate'>
@@ -48,6 +71,27 @@ function login($db, $data){
            else {
                 if(md5($data['password']) == $md5pass){
                   $_SESSION['username']=$inUser;
+                  $sql2 = "SELECT *
+                           FROM ADMIN
+                           WHERE admin_username = '$inUser'";
+                  $res2 = $db->query($sql2);
+                  
+                  $sql3 = "SELECT *
+                           FROM END_USER
+                           WHERE end_username = '$inUser'";
+                  $res3 = $db->query($sql3);
+                  
+
+                    if($res2->rowCount() > 0){
+                        $_SESSION['userType'] = 'Admin';
+                    }
+                    else if ($res3->rowCount() > 0){
+                        $_SESSION['userType'] = 'endUser';
+                    }
+                    else {
+                        $_SESSION['userType'] = 'Banned';
+                    }
+                    
            }
                 else {
                      echo '<script>alert("Incorrect Password")</script>';
@@ -110,5 +154,28 @@ function getName($db, $username) {
     else {
         return "Unknown";
     }
+}
+
+function banUser($db){
+    $username = $_SESSION['username'];
+    $sql = "SELECT end_username
+                FROM END_USER";
+        $res = $db->query($sql);
+        if ($res != FALSE){
+            while($row=$res->fetch()){ 
+                $enduser = $row['end_username'];
+                if(isset($_POST[$enduser])){
+                    $sql1 = "INSERT INTO BANS
+                             VALUES ('$username', '$enduser')";
+                    $res1 = $db->query($sql1);
+                    $sql2 = "DELETE FROM END_USER
+                             WHERE end_username = '$enduser'";
+                    $res2 = $db->query($sql2);
+                    print($username);
+                    return;
+                }
+            }
+        }
+
 }
 ?>

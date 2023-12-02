@@ -26,6 +26,7 @@ padding-bottom:10px;
 
 </STYLE>
 
+
     <?php
     $menu = "main";
     if (isset($_GET['menu'])) {
@@ -35,18 +36,31 @@ padding-bottom:10px;
 }
     else if ($menu == 'logout') {
         unset($_SESSION['username']);
+        unset($_SESSION['userType']);
     }
     else if ($menu == 'create'){
 	createAccount($db, $_POST);
+    }
+    else if ($menu == 'ban'){
+        banUser($db, $username);
     }
 }
 
 $username = $_SESSION['username'];
 $fname = getName($db, $username);
+$userType = $_SESSION['userType'];
      ?>
 
 </HEAD>
-<BODY>
+<BODY> <?php
+if ($userType == 'Banned'){ ?>
+    </table>
+    <DIV style = "text-align: center; font-size: 40px; color: red; padding-top: 30px;">
+    Your account has been banned </DIV>
+
+    <?php
+}
+else { ?>
     <table style="width:100%"> 
   <tr>
   <td style="width:10%">
@@ -60,8 +74,11 @@ $fname = getName($db, $username);
     <td align = "right">
     <?php
     if (isset($_SESSION['username'])) {?>
-        <H4 style="margin-right: 10px">Welcome, <a href="ndashboard.php"><?php echo $fname?></a> &nbsp&nbsp&nbsp&nbsp&nbspCart|? items <img src ="https://www.clker.com/cliparts/z/Y/x/l/A/c/shopping-cart-navy-hi.png" width = "20" height = "20"</img></H4>
-        <?php showLogoutForm();
+        <H4 style="margin-right: 10px">Welcome, <a href="ndashboard.php"><?php echo $fname?></a> <?php
+        if ($userType == 'endUser'){ ?>
+            &nbsp&nbsp&nbsp&nbsp&nbspCart|? items <img src ="https://www.clker.com/cliparts/z/Y/x/l/A/c/shopping-cart-navy-hi.png" width = "20" height = "20"</img></H4>
+        <?php }
+        showLogoutForm();
     }
     else {
         logOrCreate();
@@ -72,11 +89,15 @@ $fname = getName($db, $username);
            showCreateForm($db);
         }
     }
+if ($userType == 'Admin') {
+    showBanForm($db);
+}
+else {
 ?>
     <br/>
     <br/>
     <br/>
-    <FORM name='fmSearch' method='POST' action='op=search'>
+    <FORM name='fmSearch' method='POST' action='menu=search'>
     <INPUT type='text' name='search' size='20' placeholder='Search for anything' />
    <select id="categories" name="categories" style ="padding = 10px">
     <option value="AllCategories">All Categories</option>
@@ -130,5 +151,8 @@ height="300" width="auto"></img>
 </DIV>
 </DIV>
 </DIV>
+<?php } }
+ ?>
 </BODY>
 </HTML>
+
