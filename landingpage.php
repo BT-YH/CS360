@@ -1,4 +1,4 @@
-<?php include_once("gilmow01util.php"); ?>
+<?php include_once("util.php"); ?>
 <!DOCTYPE html>
 <HTML>
 <HEAD>
@@ -26,41 +26,33 @@ padding-bottom:10px;
 
 </STYLE>
 
-
     <?php
     $menu = "main";
     if (isset($_GET['menu'])) {
-    $menu = $_GET['menu'];
+         $menu = $_GET['menu'];
     if ($menu == 'login') {
         login($db, $_POST);
-}
+    }
     else if ($menu == 'logout') {
         unset($_SESSION['username']);
-        unset($_SESSION['userType']);
+        header("refresh:0.1; url=landingpage.php?menu=main\n");
     }
     else if ($menu == 'create'){
-	createAccount($db, $_POST);
-    }
-    else if ($menu == 'ban'){
-        banUser($db, $username);
+	    createAccount($db, $_POST);
+        header("refresh:0.1; url=landingpage.php?menu=main\n");
     }
 }
 
 $username = $_SESSION['username'];
-$fname = getName($db, $username);
-$userType = $_SESSION['userType'];
+$fullname = getName($db, $username);
+$_SESSION['fullname'] = $fullname;
+$fname = $fullname['fname'];
+$lname = $fullname['lname'];
+
      ?>
 
 </HEAD>
-<BODY> <?php
-if ($userType == 'Banned'){ ?>
-    </table>
-    <DIV style = "text-align: center; font-size: 40px; color: red; padding-top: 30px;">
-    Your account has been banned </DIV>
-
-    <?php
-}
-else { ?>
+<BODY>
     <table style="width:100%"> 
   <tr>
   <td style="width:10%">
@@ -74,11 +66,8 @@ else { ?>
     <td align = "right">
     <?php
     if (isset($_SESSION['username'])) {?>
-        <H4 style="margin-right: 10px">Welcome, <a href="ndashboard.php"><?php echo $fname?></a> <?php
-        if ($userType == 'endUser'){ ?>
-            &nbsp&nbsp&nbsp&nbsp&nbspCart|? items <img src ="https://www.clker.com/cliparts/z/Y/x/l/A/c/shopping-cart-navy-hi.png" width = "20" height = "20"</img></H4>
-        <?php }
-        showLogoutForm();
+        <H4 style="margin-right: 10px">Welcome, <a href="ndashboard.php"><?php echo $fname?></a> &nbsp&nbsp&nbsp&nbsp&nbspCart|? items <img src ="https://www.clker.com/cliparts/z/Y/x/l/A/c/shopping-cart-navy-hi.png" width = "20" height = "20"</img></H4>
+        <?php showLogoutForm();
     }
     else {
         logOrCreate();
@@ -89,15 +78,11 @@ else { ?>
            showCreateForm($db);
         }
     }
-if ($userType == 'Admin') {
-    showBanForm($db);
-}
-else {
 ?>
     <br/>
     <br/>
     <br/>
-    <FORM name='fmSearch' method='POST' action='menu=search'>
+    <FORM name='fmSearch' method='POST' action='op=search'>
     <INPUT type='text' name='search' size='20' placeholder='Search for anything' />
    <select id="categories" name="categories" style ="padding = 10px">
     <option value="AllCategories">All Categories</option>
@@ -112,11 +97,11 @@ else {
     </tr>
    </table>
 <nav class="nav nav-pills nav-fill border-top 2px border-bottom 2px">
-  <a class="nav-item nav-link" href="#">Course Materials</a>
-  <a class="nav-item nav-link" href="#">Technology</a>
-  <a class="nav-item nav-link" href="#">Fashion</a>
-  <a class="nav-item nav-link" href="#">Student Essentials</a>
-  <a class="nav-item nav-link" href="#">Entertainment</a>  
+  <a class="nav-item nav-link" href="products.php">Course Materials</a>
+  <a class="nav-item nav-link" href="products.php">Technology</a>
+  <a class="nav-item nav-link" href="products.php">Fashion</a>
+  <a class="nav-item nav-link" href="products.php">Student Essentials</a>
+  <a class="nav-item nav-link" href="products.php">Entertainment</a>  
 </nav>
 
 <DIV class="row">
@@ -151,8 +136,5 @@ height="300" width="auto"></img>
 </DIV>
 </DIV>
 </DIV>
-<?php } }
- ?>
 </BODY>
 </HTML>
-
