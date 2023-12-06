@@ -3,18 +3,101 @@
 <HTML>
 <HEAD>
 <TITLE> Landing </TITLE>
-
 <?php include("bootstrap.php"); ?>
 <STYLE>
 BODY{
 font-family: georgia;
 }
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    flex-grow: 1;
+    overflow: hidden;
+    justify-content: flex-start; 
+}
+
+.sidebar {
+    width: 20%;
+    background: #ddd;
+    padding: 1em;
+    margin: 1em;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.product-container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 1em;
+}
+
+.product-container-landing {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1em;
+}
+
+.product {
+    box-sizing: border-box;
+    margin: 1.5%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 10em;
+    height: 25em;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+    overflow: hidden; 
+}
+
+
+.product img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    height: auto; 
+    padding: 1em;
+
+}
+
+.product-info {
+    padding: 1em;
+    flex-grow: 1;
+    position: absolute;
+    bottom: 0;
+}
+
+.product h3 {
+    margin-top: 0;
+}
+
+.product p {
+    color: #888;
+}
+
+
+
 .nav-link {
 color:black;
 font-size:20px;
 }
 .nav-link:hover {
- color: #E87722;
+    color: #E87722;
 }
 
 nav {
@@ -22,6 +105,13 @@ margin-top: 10px;
 }
 img{
 padding-bottom:10px;
+}
+.product-container-landing {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1em;
 }
 
 </STYLE>
@@ -66,10 +156,10 @@ else { ?>
   <td style="width:10%">
     <img src = "https://www.gettysburg.edu/main/images/apple-touch-icon-152x152.png"></img>
     </td>
-   <td style="width:20%">
-   <H1><i><span style="color: #002F6c";>Gettysburg</span><br/>
+   <td style="width:15%"; align = "right">
+   <H1><i><b><span style="color: #002F6c";>Gettysburg</span><br/>
    <span style="color:#E87722";> College </span><br/>
-   <span style="color: #002F6c";>Marketplace</span></i></H1>
+   <span style="color: #002F6c";>Marketplace</span></b></i></H1>
     </td>
     <td align = "right">
     <?php
@@ -87,6 +177,7 @@ else { ?>
         }
         else if($_POST['option'] == 'Create Account'){
            showCreateForm($db);
+
         }
     }
 if ($userType == 'Admin') {
@@ -120,37 +211,19 @@ else {
 </nav>
 
 <DIV class="row">
-<H2><b>Featured Products</b></H2>
-</DIV>
-<DIV class="row">
-<img src = "https://gettysburg.bncollege.com/medias/must-haves-school-color.png?context=bWFzdGVyfHJvb3R8NTI2ODkwfGltYWdlL3BuZ3xhR1l6TDJoaFlpOHlOamt4TURBMk1UZzFORGMxTUM5dGRYTjBYMmhoZG1WelgzTmphRzl2YkY5amIyeHZjaTV3Ym1jfDFjY2FhNTFkYmViMjg3YjgzMjAzNGI2YTg5YmMyMDI0YzgzZGRiZGIyMGE0Y2ZhZjk1ZWJlNDcyZmRiMWQ2N2I"
-height="300" width="auto"></img>
-</DIV>
-<DIV class="row">
-<H2><b>Recommended Products</b></H2>
-</DIV>
-<DIV class = "container" style = "text-align: center">
-<DIV class="row">
-<DIV class = "col-2">
-<img src ="https://ih1.redbubble.net/image.1196636959.2471/st,small,507x507-pad,600x600,f8f8f8.jpg" height ="200" width = "150"></img>
-</DIV>
-<DIV class = "col-2">
-<img src ="https://images.footballfanatics.com/gettysburg-bullets/gettysburg-college-champion-jersey-short-sleeve-t-shirt-navy_ss10_p-100797648+u-tvvzialj6ngp73mi6qel+v-3ha6ijmm8mcg7ipnk28s.jpg?_hv=2&w=600" height ="200" width = "150"></img>
-</DIV>
-<DIV class = "col-2">
-<img src ="https://m.media-amazon.com/images/I/71kBRLo8ZtL._AC_UF1000,1000_QL80_.jpg" height ="200" width = "150"></img>
-</DIV>
-<DIV class = "col-2">
-<img src ="https://m.media-amazon.com/images/I/71OL7PXfOeL.jpg" height ="200" width = "150"></img>
-</DIV>
-<DIV class = "col-2">
-<img src ="https://m.media-amazon.com/images/I/81+lwBghWBL._AC_UF1000,1000_QL80_.jpg" height ="200" width = "150"></img>
-</DIV>
-<DIV class = "col-2">
-<img src ="https://static.helixbeta.com/prod/8308/0268/8308_643120268.JPG" height ="200" width = "150"></img>
-</DIV>
-</DIV>
-</DIV>
+<H2 style = "padding-top: 10px"><b>Featured Products</b></H2>
+</DIV> 
+<DIV class = "product-container-landing"> <?php
+$sql = "SELECT *
+        FROM ITEM
+        LIMIT 5";
+$res = $db->query($sql);
+display_product($res->fetch());
+display_product($res->fetch());
+display_product($res->fetch());
+display_product($res->fetch());
+display_product($res->fetch());
+?>
 <?php } }
  ?>
 </BODY>
