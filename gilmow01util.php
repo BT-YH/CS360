@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+session_start();
 include_once("db_connect.php");
 
 function showLoginForm($db) {
@@ -32,6 +32,7 @@ function showBanForm($db){ ?>
         if ($res != FALSE){
         ?>
         <TABLE> 
+        <tr><th style = "padding-left: 15px; padding-right: 10px; padding-top :10px; padding-bottom: 10px">End Users</th></tr>
             <?php
             while($row=$res->fetch()){ ?>
                 <tr> <td style = "padding-left: 15px; padding-right: 10px; padding-top :10px; padding-bottom: 10px"> <?php
@@ -177,5 +178,89 @@ function banUser($db){
             }
         }
 
+}
+
+
+function display_products($db) {
+
+    $sql = "SELECT * FROM ITEM";
+    $res = $db->query($sql);
+    
+    if ($res != FALSE) {
+        while ($row = $res->fetch()) {
+            display_product($row);
+        }
+    }
+}
+
+function display_product($row) {
+    $iid      = $row['iid'];
+    $image    = $row['picture'];
+    $price    = $row['price'];
+    $name  	  = $row['item_name'];
+    $category = $row['category']; 
+
+    print <<< HTML
+    <DIV class="product" data-price="$price" data-category="$category">
+    <FORM method="POST" action="?op=addingToCart">
+    <INPUT type=hidden name="iid" value="$iid">
+    <A href="product.php?iid=$iid">
+    <IMG src="$image" /> </A>
+        <DIV class="product-info">
+        <A href="product.php?iid=$iid">
+        <H3> $name </H3>
+        </A>
+        <P>$$price </P>
+        <P>Category: $category </P>
+        <BUTTON type="submit">Add to Cart</BUTTON>
+        </DIV>
+    </FORM>
+    </DIV>
+    HTML;
+}
+function showSearchForm($db){ ?>
+    <FORM name='fmSearch' method='POST' action='?menu=search'>
+    <INPUT type='text' name='search' required="required" size='20' placeholder='Search for anything' />
+   <select id="categories" name="categories" style ="padding = 10px">
+    <option value="All Categories">All Categories</option>
+    <option value="Course Materials">Course Materials</option>
+    <option value="Technology">Technology</option>
+    <option value="Fashion">Fashion</option>
+    <option value="Student Essentials">Student Essentials</option>
+    </select>
+    <INPUT type='submit' value='Search' style="margin-right: 10px" />
+    </FORM> <?php
+}
+
+function search($db, $data){
+    $search = $data['search'];
+    $cat = $data['categories'];
+    if ($cat == "All Categories") {
+	$sql = "SELECT *
+ 	        FROM ITEM
+		WHERE item_name like '%$search%'";
+    }
+    else {
+	$sql = "SELECT *
+                FROM ITEM
+                WHERE item_name like '%$search%' AND category = '$cat'";
+    }
+
+   $res = $db->query($sql);
+   if ($res->rowCount() == 0){ ?>
+<DIV style = "font-size: 40px; text-align: center; padding-top: 10px"> 
+	There are no items listed with that name
+</DIV> <?php
+   }
+   else{
+	if ($res != FALSE){ ?>
+	    <DIV class = "product-container"> <?php
+   	    while($row = $res->fetch()){ 
+		display_product($row);
+ 	    }
+         }
+  }
+
+  ?> </DIV> <?php
 }
 ?>
