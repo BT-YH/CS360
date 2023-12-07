@@ -18,7 +18,7 @@ include("bootstrap.php")
     border-radius: 8px;
     text-align: center;
     font-size: 20px;
-    background-color: orange; 
+    background-color: lightblue; 
     color: ivory;
     flex: 1;
     margin: 0; 
@@ -37,7 +37,7 @@ include("bootstrap.php")
 }
 
 .main {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     border: solid 2px grey;
     padding: 10px;
 }
@@ -68,12 +68,23 @@ if (isset($_GET['menu'])) {
 ?>
 
 <!-- banner -->
+
+
+<div style="background-color: lightgrey ">
+
 <DIV class="row">
-<DIV class="col-8" style="font-size: 40px">Hello  <?php echo $person; ?>!</DIV>
+<DIV class="col-8" style="font-size: 25px">Hello  <?php echo $person; ?>!</DIV>
 <DIV class="col-4 "> 
 
 </DIV>
 </DIV>
+
+<DIV class="container" style="background-color: lightgrey;">
+    <DIV class="content" style="padding: 10px; margin: 10px; background-color: lightgrey;">
+        <!-- Your content here -->
+    </DIV>
+</DIV>
+
 
 <!-- navbar: menu -->
 <DIV class="row">
@@ -87,6 +98,7 @@ if (isset($_GET['menu'])) {
 </DIV>
 
 </DIV>
+</div>
 
 <!-- actual content for each menu item -->
 <DIV class="row main">
