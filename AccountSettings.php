@@ -1,6 +1,7 @@
 <?php
 session_start(); 
 include('bernard.php');  
+include('db_connect.php'); 
 
 
 $menu = "inbox";
@@ -14,5 +15,7 @@ $name = $_SESSION['username'];
 <body>
     <h1>Update Account Information</h1>
     <?php genUpdateForm(); ?>
+    <?php updateUserInfo($db); ?>
+    
 </body>
 </html>

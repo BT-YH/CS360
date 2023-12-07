@@ -68,7 +68,7 @@
         <div class="row topnav">
             <div class="col-8" style="font-size: 17px; color: black;">
                 <a href="AccountSettings.php" style="text-decoration: none; color: black;">Account Settings</a> &nbsp;
-                <a href="landingpage.php" style="text-decoration: none; color: black;">Payment Info</a>
+                <a href="PaymentInfo.php" style="text-decoration: none; color: black;">Payment Info</a>
                 <a href= "message.php"style="text-decoration: none; color: black;">Send Message</a>
             </div>
             <div class="col-4" style="text-align: right">
